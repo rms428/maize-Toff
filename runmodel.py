@@ -33,3 +33,5 @@ output = model.output()
 
 # %% Generate figures
 output['ET'].plot()
+
+plt.show()
