@@ -151,7 +151,7 @@ class CropModel():
                 # 0. Update the crop coefficient and day of season
                 self.dos[t] = dos
                 self.kc[t] = self.crop.calc_kc(dos)
-                self.LAI[t] = self.crop.calc_LAI(self.kc[dos])
+                self.LAI[t] = self.crop.calc_LAI(self.kc[t])
                 self.stress[t] = self.crop.calc_stress(self.s[t])
 
                 # 1. Calculate Q
