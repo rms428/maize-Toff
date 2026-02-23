@@ -93,30 +93,29 @@ style: |
 <!-- Slide 1: Title -->
 <!-- _class: lead -->
 
-# Do parkland trees help or hurt the crops beneath them?
+# To tree or not to tree?
 ## A trait-based ecohydrological model for semi-arid agroforestry
 
 Cella Schnabel · Larsen Lab · February 24, 2026
 
-*Laikipia, Kenya — stochastic soil-moisture framework (Rodriguez-Iturbe & Porporato 2004)*
 
 ---
 
 <!-- Slide 2: The puzzle -->
 
-# The puzzle
+# Question
 
 **Field evidence is contradictory:**
 
-- *Faidherbia albida* (winter-thorn acacia) → consistently facilitates maize in the Sahel
-- Most evergreen parkland trees → mixed results; competition documented under drought
+- *Faidherbia albida* (white acacia): consistently facilitates maize in the Sahel
+- Most evergreen parkland trees: mixed results; competition documented under drought
 - Reviews report +5–30% yield gains — but also yield *losses*
 
 **Why?**
 
 > Trees interact with crops through multiple simultaneous mechanisms.
-> Whether the net effect is positive or negative depends on
-> **which traits the tree has** and **what the rainfall looks like.**
+> Whether the net effect on crop yield is positive or negative depends on
+> **the tree** and **the climate.**
 
 ---
 
@@ -141,7 +140,6 @@ Cella Schnabel · Larsen Lab · February 24, 2026
 - Facilitation vs. competition attributed post-hoc to "deep roots," "phenology," or "N-fixation" separately — never decomposed together
 
 > **Gap this work fills:** a process-based decomposition of which traits drive the competition→facilitation transition, and when.
-> State-of-the-art land surface models now represent Faidherbia's reverse phenology *(Gaglo et al. 2025, GMD)* but still lack hydraulic redistribution — the mechanism our results identify as essential. No existing model has decomposed these mechanisms across tree archetypes and rainfall regimes.
 
 ---
 
