@@ -50,3 +50,23 @@ Replaces old 2-archetype system (Co-season + Faidherbia).
 - Rerun all figures with new parameters (user must execute notebooks)
 - Add `lgp=180` pass to `run_tree_scenario()` if needed
 - Consider adding Fig 7 dual-panel (HR on/off) as suggested in plan
+
+---
+## Session: 2026-04-02 — Three-crop design + CETRAD climate fix
+
+### Changes implemented
+1. **CETRAD pre-computation cell** (new cell `cetrad_params`): calls `make_climate_parameters()` once, stores `_alpha_cetrad`, `_lambda_cetrad`, `_CLIMATE_KWARGS_FAST`. Confirmed: 555 mm/yr, 376 mm/247-day season.
+2. **HR added to outside-canopy zone** in `ThreeCropModel.run()`: both zones computed simultaneously from same initial gradients, jointly capped by available deep water. Outside-canopy HR = `alpha_lateral × hr_max × ΔΨ/ΔΨ_ref`. New arrays: `HR_under`, `HR_outside` in `pre_allocate()` and `output_tree()`.
+3. **All `Climate()` calls in simulation loops updated** to use `_CLIMATE_KWARGS_FAST` (calibrated params). Diagnostic cell uses `CLIMATE_KWARGS` (station-based, fine for one-off run).
+4. **`_make_climate()` updated** to use `_alpha_cetrad`/`_lambda_cetrad` as base arrays.
+
+### Verification
+- HR fires in wet-enough years (HR_u/HR_o split confirmed for seeds 7, 17, 200).
+- In true drought years (RF < 375 mm), HR = 0 — physically correct.
+- Monte Carlo 300-sim results (baseline): under=1171, outside=763, mono=942 kg/acre.
+- Mechanistic decompositions: outside−mono=−179 (competition), under−outside=+408 (facilitation), under−mono=+229 (net).
+- Tree T_MAX=2.0 throughout.
+
+### Open questions
+- HR_outside > HR_under in some seasons (seed=200: 10 vs 5 mm). This is correct: oc=0.8 is 4× larger area than cc=0.2, so even with alpha_lateral=0.5 the outside zone has more total HR capacity. Per-unit-zone-area, under > outside as expected.
+- Facilitation still dominates at T_MAX=2.0. Next step: sweep T_MAX to find competition/facilitation transition.
